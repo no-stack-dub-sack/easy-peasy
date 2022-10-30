@@ -185,16 +185,17 @@ const storeModel: StoreModel = {
         (state) => state.twentyEight,
         (state) => state.twentyNine,
         (_, storeState) => storeState.addAllTheThings,
+        (_, storeState) => storeState.one, // 👈 the `StateResolvers` type does not support type-safety for > 15 resolvers
       ],
       (_, change) => {
-        const [a, b, c, d, e, f, g, h, i, j, k, l, m, n, o] = change.current;
-        const [p, q, r, s, t, u, v, w, x, y, z, aa, bb, cc, dd] = change.prev;
-        // do something
+        const [a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p] = change.current;
+        // we lose type information here                    👆
+        const [q, r, s, t, u, v, w, x, y, z, aa, bb, cc, dd, ee, ff] =
+          change.prev; // and here                               👆
       },
     ),
   },
   addTooManyThings: computed(
-    // typings:expect-error
     [
       (state) => state.one,
       (state) => state.two,
@@ -211,10 +212,11 @@ const storeModel: StoreModel = {
       (state) => state.thirteen,
       (state) => state.fourteen,
       (state) => state.fifteen,
-      (state) => state.fifteen, // 👈 too many resolvers! 💥
+      (state) => state.fifteen, // 👈 the `StateResolvers` type does not support type-safety for > 15 resolvers
     ],
-    (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o) => {
-      return a + b + c + d + e + f + g + h + i + j + k + l + m + n + o;
+    (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p) => {
+      // we lose type information here            👆
+      return a + b + c + d + e + f + g + h + i + j + k + l + m + n + o + p;
     },
   ),
 };

@@ -230,6 +230,24 @@ type StateResolvers<Model extends object, StoreModel extends object> =
       StateResolver<Model, StoreModel, any>,
       StateResolver<Model, StoreModel, any>,
       StateResolver<Model, StoreModel, any>,
+    ]
+  | [
+      StateResolver<Model, StoreModel, any>,
+      StateResolver<Model, StoreModel, any>,
+      StateResolver<Model, StoreModel, any>,
+      StateResolver<Model, StoreModel, any>,
+      StateResolver<Model, StoreModel, any>,
+      StateResolver<Model, StoreModel, any>,
+      StateResolver<Model, StoreModel, any>,
+      StateResolver<Model, StoreModel, any>,
+      StateResolver<Model, StoreModel, any>,
+      StateResolver<Model, StoreModel, any>,
+      StateResolver<Model, StoreModel, any>,
+      StateResolver<Model, StoreModel, any>,
+      StateResolver<Model, StoreModel, any>,
+      StateResolver<Model, StoreModel, any>,
+      StateResolver<Model, StoreModel, any>,
+      ...Array<StateResolver<Model, StoreModel, any>>
     ];
 
 type AnyFunction = (...args: any[]) => any;
@@ -1100,6 +1118,42 @@ export function computed<
         arg13: ReturnType<Resolvers[13]>,
         arg14: ReturnType<Resolvers[14]>,
       ) => Result
+    : Resolvers extends [
+        AnyFunction,
+        AnyFunction,
+        AnyFunction,
+        AnyFunction,
+        AnyFunction,
+        AnyFunction,
+        AnyFunction,
+        AnyFunction,
+        AnyFunction,
+        AnyFunction,
+        AnyFunction,
+        AnyFunction,
+        AnyFunction,
+        AnyFunction,
+        AnyFunction,
+        ...Array<AnyFunction>
+      ]
+    ? (
+        arg0: ReturnType<Resolvers[0]>,
+        arg1: ReturnType<Resolvers[1]>,
+        arg2: ReturnType<Resolvers[2]>,
+        arg3: ReturnType<Resolvers[3]>,
+        arg4: ReturnType<Resolvers[4]>,
+        arg5: ReturnType<Resolvers[5]>,
+        arg6: ReturnType<Resolvers[6]>,
+        arg7: ReturnType<Resolvers[7]>,
+        arg8: ReturnType<Resolvers[8]>,
+        arg9: ReturnType<Resolvers[9]>,
+        arg10: ReturnType<Resolvers[10]>,
+        arg11: ReturnType<Resolvers[11]>,
+        arg12: ReturnType<Resolvers[12]>,
+        arg13: ReturnType<Resolvers[13]>,
+        arg14: ReturnType<Resolvers[14]>,
+        ...args: any[]
+      ) => Result
     : () => Result,
 ): Computed<Model, Result, StoreModel>;
 
@@ -1398,6 +1452,42 @@ type Dependencies<Resolvers extends StateResolvers<any, any>> =
         ReturnType<Resolvers[12]>,
         ReturnType<Resolvers[13]>,
         ReturnType<Resolvers[14]>,
+      ]
+    : Resolvers extends [
+        AnyFunction,
+        AnyFunction,
+        AnyFunction,
+        AnyFunction,
+        AnyFunction,
+        AnyFunction,
+        AnyFunction,
+        AnyFunction,
+        AnyFunction,
+        AnyFunction,
+        AnyFunction,
+        AnyFunction,
+        AnyFunction,
+        AnyFunction,
+        AnyFunction,
+        ...Array<AnyFunction>
+      ]
+    ? [
+        ReturnType<Resolvers[0]>,
+        ReturnType<Resolvers[1]>,
+        ReturnType<Resolvers[2]>,
+        ReturnType<Resolvers[3]>,
+        ReturnType<Resolvers[4]>,
+        ReturnType<Resolvers[5]>,
+        ReturnType<Resolvers[6]>,
+        ReturnType<Resolvers[7]>,
+        ReturnType<Resolvers[8]>,
+        ReturnType<Resolvers[9]>,
+        ReturnType<Resolvers[10]>,
+        ReturnType<Resolvers[11]>,
+        ReturnType<Resolvers[12]>,
+        ReturnType<Resolvers[13]>,
+        ReturnType<Resolvers[14]>,
+        ...any[]
       ]
     : any[];
 
