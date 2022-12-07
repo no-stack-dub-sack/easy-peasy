@@ -66,7 +66,7 @@ ESLint and our test suite will be run before every commit. Any violations of fix
 
 You can run the tests or ESLint manually at any time with the following commands:
 
-```bash
+```powershell
 # run tests on source code only
 yarn test:source
 
